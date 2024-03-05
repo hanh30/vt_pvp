@@ -38,6 +38,7 @@ def read_sb_gr(path_list):
     for path in path_list:
         df_list.append(read_sb(path))
     df_gr = pd.concat(df_list).reset_index(drop=True)
+    print(df_list[0].head())
     return df_gr
 
 def preprocessing(df, df_part):
