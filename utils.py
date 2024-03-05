@@ -36,9 +36,15 @@ def read_sb(path):
 def read_sb_gr(path_list):
     df_list = []
     for path in path_list:
+        df_gr_x = read_sb(path)
+        if 'gr2' in path.lower():
+           df_gr_x.insert(0, 'group', 2)
+        elif 'gr3' in path.lower():
+           df_gr_x.insert(0, 'group', 3)
+        else:
+           raise ValueError('wrong path_list')
         df_list.append(read_sb(path))
     df_gr = pd.concat(df_list).reset_index(drop=True)
-    print(df_list[0].head())
     return df_gr
 
 def preprocessing(df, df_part):
