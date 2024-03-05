@@ -33,6 +33,13 @@ def read_sb(path):
     df = pd.concat(df_list).reset_index(drop=True)
     return df
 
+def read_sb_gr(path_list):
+    df_list = []
+    for path in path_list:
+        df_list.append(read_sb(path))
+    df_gr = pd.concat(df_list).reset_index(drop=True)
+    return df_gr
+
 def preprocessing(df, df_part):
     # drop unnecessary columns
     cols_drop = [1,2,4,5,7,8,10]
