@@ -43,7 +43,7 @@ def read_sb_gr(path_list):
            df_gr_x.insert(0, 'group', 3)
         else:
            raise ValueError('wrong path_list')
-        df_list.append(read_sb(path))
+        df_list.append(df_gr_x)
     df_gr = pd.concat(df_list).reset_index(drop=True)
     return df_gr
 
